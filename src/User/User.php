@@ -9,11 +9,14 @@ class User
     
     private $name;
     
+    private $created;
+    
     
     public function __construct($id, $name)
     {
-        $this->id   = $id;
-        $this->name = $name;
+        $this->id      = $id;
+        $this->name    = $name;
+        $this->created = new \DateTime();
     }
     
     
@@ -32,6 +35,15 @@ class User
     public function getName()
     {
         return $this->name;
+    }
+    
+    
+    /**
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
     
 }

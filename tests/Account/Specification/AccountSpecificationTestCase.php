@@ -10,7 +10,7 @@ abstract class AccountSpecificationTestCase extends \PHPUnit_Framework_TestCase
     /**
      * @return Account
      */
-    protected function getMockAccount($amount = 0)
+    protected function getMockAccount($amount = 0, User $user = null)
     {
         $account = $this->getMockBuilder(Account::class)
             ->disableOriginalConstructor()
@@ -19,6 +19,10 @@ abstract class AccountSpecificationTestCase extends \PHPUnit_Framework_TestCase
         $account->expects($this->any())
             ->method('getAmount')
             ->willReturn($amount);
+        
+        $account->expects($this->any())
+            ->method('getUser')
+            ->willReturn($user);
         
         return $account;
     }
