@@ -12,8 +12,18 @@ class UserTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(User::class, $this->getTestUser());
     }
 
-    private function getTestUser()
+    public function testGetId()
     {
-        return new User();
+        $this->assertSame(1, $this->getTestUser()->getId());
+    }
+
+    public function testGetName()
+    {
+        $this->assertSame('foo', $this->getTestUser()->getName());
+    }
+
+    private function getTestUser($id = 1, $name = 'foo')
+    {
+        return new User($id, $name);
     }
 }
